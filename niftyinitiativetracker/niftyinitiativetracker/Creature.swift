@@ -12,4 +12,5 @@ struct Creature: Identifiable {
     let name: String
     var initiativeRoll: Int
     var modifier: Int = 0
+    var isPC: Bool = false
 }

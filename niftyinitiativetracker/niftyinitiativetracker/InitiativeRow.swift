@@ -21,7 +21,10 @@ struct InitiativeRow: View {
         .padding()
         .overlay(
             RoundedRectangle(cornerRadius: 25)
-                .stroke(Color.purple, lineWidth: 5)
+                .stroke(
+                    creature.isPC ? .blue : .red,
+                    lineWidth: 5
+                )
         )
         .padding(.horizontal)
         .padding(.bottom, 5)

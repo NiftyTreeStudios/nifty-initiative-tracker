@@ -19,6 +19,12 @@ struct ContentView: View {
             name: "Creature2",
             initiativeRoll: 12,
             modifier: 3
+        ),
+        Creature(
+            name: "PC",
+            initiativeRoll: 13,
+            modifier: 0,
+            isPC: true
         )
     ]
     
