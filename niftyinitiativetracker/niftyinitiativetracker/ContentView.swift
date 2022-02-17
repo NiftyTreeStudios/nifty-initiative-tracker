@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    var creatures: [Creature] = [
+    @State private var creatures: [Creature] = [
         Creature(
             name: "Creature",
             initiativeRoll: 12,
@@ -18,12 +18,12 @@ struct ContentView: View {
         Creature(
             name: "Creature2",
             initiativeRoll: 12,
-            modifier: 3
+            modifier: 1
         ),
         Creature(
             name: "PC",
             initiativeRoll: 13,
-            modifier: 0,
+            modifier: 6,
             isPC: true
         )
     ]
@@ -38,8 +38,20 @@ struct ContentView: View {
                 }
             }
             .navigationTitle(Text("Nifty Initiative Tracker"))
+            .toolbar {
+                Button {
+                    print("Sort")
+                    creatures.sort {
+                        ($0.initiativeRoll + $0.modifier) > ($1.initiativeRoll + $1.modifier)
+                    }
+                } label: {
+                    Image(systemName: "line.3.horizontal.decrease")
+                }
+
+            }
         }
     }
+
 }
 
 struct ContentView_Previews: PreviewProvider {
