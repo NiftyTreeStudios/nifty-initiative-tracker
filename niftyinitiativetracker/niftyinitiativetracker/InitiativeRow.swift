@@ -15,7 +15,7 @@ struct InitiativeRow: View {
         HStack {
             Text(creature.name)
             Spacer()
-            Text("\(creature.initiativeRoll + creature.modifier)")
+            Text("\(getInitiativeCount(roll: creature.initiativeRoll, modifier: creature.modifier))")
         }
         .font(.title3)
         .padding()
@@ -28,6 +28,15 @@ struct InitiativeRow: View {
         )
         .padding(.horizontal)
         .padding(.bottom, 5)
+    }
+    
+    private func getInitiativeCount(roll: Int, modifier: Int) -> Int {
+        let initiative = roll + modifier
+        if initiative > 0 {
+            return initiative
+        } else {
+            return 0
+        }
     }
 }
 

@@ -11,6 +11,8 @@ struct ContentView: View {
     
     @State private var isInEditMode: Bool = false
     
+    @State private var isAddingNewCreature: Bool = false
+    
     @State private var creatures: [Creature] = [
         Creature(
             name: "Creature",
@@ -76,8 +78,12 @@ struct ContentView: View {
             .navigationTitle(Text("Nifty Initiative Tracker"))
             .navigationBarBackButtonHidden(true)
             .toolbar {
-                ToolbarItems(creatures: $creatures, editMode: $isInEditMode)
+                ToolbarItems(creatures: $creatures, editMode: $isInEditMode, isAddingNewCreature: $isAddingNewCreature)
             }
+            .sheet(isPresented: $isAddingNewCreature) {
+                AddNewCreature(creatures: $creatures, isOpen: $isAddingNewCreature)
+            }
+
         }
     }
     
@@ -87,11 +93,50 @@ struct ContentView: View {
     
 }
 
+struct AddNewCreature: View {
+    
+    @Binding var creatures: [Creature]
+    @Binding var isOpen: Bool
+    
+    @State private var name: String = ""
+    @State private var initiativeModifier: Int = 0
+    @State private var isPC: Bool = false
+    
+    var body: some View {
+        VStack {
+            Text("Add new character")
+                .font(.title2)
+            Form {
+                TextField("Name", text: $name)
+                Stepper("Modifier: \(initiativeModifier)", value: $initiativeModifier)
+                    
+                Toggle("Player character", isOn: $isPC)
+            }
+            Button {
+                creatures.append(
+                    Creature(
+                        name: name,
+                        initiativeRoll: Int.random(in: 1...20),
+                        modifier: initiativeModifier,
+                        isPC: isPC
+                    )
+                )
+                isOpen = false
+            } label: {
+                Text("Add new character")
+            }
+
+        }.padding(.vertical)
+    }
+}
+
 struct ToolbarItems: ToolbarContent {
     
     @Binding var creatures: [Creature]
     
     @Binding var editMode: Bool
+    
+    @Binding var isAddingNewCreature: Bool
     
     var body: some ToolbarContent {
         ToolbarItemGroup {
@@ -110,14 +155,7 @@ struct ToolbarItems: ToolbarContent {
                     Image(systemName: "line.3.horizontal.decrease")
                 }
                 Button {
-                    creatures.append(
-                        Creature(
-                            name: "New character",
-                            initiativeRoll: Int.random(in: 1...20),
-                            modifier: Int.random(in: 0...5),
-                            isPC: Bool.random()
-                        )
-                    )
+                    isAddingNewCreature = true
                 } label: {
                     Image(systemName: "plus")
                 }
