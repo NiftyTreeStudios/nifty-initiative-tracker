@@ -13,26 +13,7 @@ struct ContentView: View {
     
     @State private var isAddingNewCreature: Bool = false
     
-    @State private var creatures: [Creature] = [
-        Creature(
-            name: "Creature",
-            initiativeRoll: 12,
-            modifier: 3
-        ),
-        Creature(
-            name: "Creature2",
-            initiativeRoll: 12,
-            modifier: 1
-        ),
-        Creature(
-            name: "PC",
-            initiativeRoll: 13,
-            modifier: 6,
-            isPC: true
-        )
-    ]
-    
-    
+    @State private var creatures: [Creature] = []
     
     var body: some View {
         NavigationView {
@@ -72,8 +53,8 @@ struct ContentView: View {
                                 Capsule()
                                     .foregroundColor(.blue)
                             }
-                    }
-                }
+                    }.disabled(creatures.isEmpty)
+                }.padding()
             }
             .navigationTitle(Text("Nifty Initiative Tracker"))
             .navigationBarBackButtonHidden(true)
@@ -145,7 +126,7 @@ struct ToolbarItems: ToolbarContent {
                     editMode.toggle()
                 } label: {
                     Text("Edit")
-                }
+                }.disabled(creatures.isEmpty)
                 Spacer()
                 Button {
                     creatures.sort {
@@ -153,7 +134,7 @@ struct ToolbarItems: ToolbarContent {
                     }
                 } label: {
                     Image(systemName: "line.3.horizontal.decrease")
-                }
+                }.disabled(creatures.isEmpty)
                 Button {
                     isAddingNewCreature = true
                 } label: {
