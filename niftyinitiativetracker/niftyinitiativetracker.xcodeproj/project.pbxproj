@@ -36,7 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		34110E7727BA38D400948887 /* niftyinitiativetracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = niftyinitiativetracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		34110E7727BA38D400948887 /* Initiative Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Initiative Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34110E7A27BA38D400948887 /* niftyinitiativetrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = niftyinitiativetrackerApp.swift; sourceTree = "<group>"; };
 		34110E7C27BA38D400948887 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		34110E7E27BA38D500948887 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 		34110E7827BA38D400948887 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				34110E7727BA38D400948887 /* niftyinitiativetracker.app */,
+				34110E7727BA38D400948887 /* Initiative Tracker.app */,
 				34110E8727BA38D500948887 /* niftyinitiativetrackerTests.xctest */,
 				34110E9127BA38D500948887 /* niftyinitiativetrackerUITests.xctest */,
 			);
@@ -150,7 +150,7 @@
 			);
 			name = niftyinitiativetracker;
 			productName = niftyinitiativetracker;
-			productReference = 34110E7727BA38D400948887 /* niftyinitiativetracker.app */;
+			productReference = 34110E7727BA38D400948887 /* Initiative Tracker.app */;
 			productType = "com.apple.product-type.application";
 		};
 		34110E8627BA38D500948887 /* niftyinitiativetrackerTests */ = {
@@ -440,9 +440,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.niftytreestudios.niftyinitiativetracker;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Initiative Tracker";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -470,9 +470,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.niftytreestudios.niftyinitiativetracker;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Initiative Tracker";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
