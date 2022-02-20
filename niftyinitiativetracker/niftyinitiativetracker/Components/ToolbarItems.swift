@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ToolbarItems: ToolbarContent {
     
-    @Binding var creatures: [Creature]
+    @Binding var creatures: [Character]
     
     @Binding var editMode: Bool
     

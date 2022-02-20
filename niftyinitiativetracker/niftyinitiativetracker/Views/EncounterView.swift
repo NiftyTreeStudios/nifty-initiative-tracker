@@ -13,17 +13,21 @@ struct EncounterView: View {
     
     @State private var isAddingNewCreature: Bool = false
     
-    @State private var creatures: [Creature] = []
+    @Binding var creatures: [Creature]
+    
+    @Binding var characters: [PlayerCharacter]
+    
+    @State private var encounterCreatures: [Character] = []
     
     var body: some View {
         NavigationView {
             ZStack {
                 ScrollView {
-                    ForEach(creatures) { creature in
+                    ForEach(encounterCreatures, id: \.id) { character in
                         HStack {
                             if isInEditMode {
                                 Button {
-                                    if let index = creatures.firstIndex(of: creature) {
+                                    if let index = creatures.firstIndex(of: character as! Creature) {
                                         creatures.remove(at: index)
                                     }
                                 } label: {
@@ -31,7 +35,7 @@ struct EncounterView: View {
                                 }
 
                             }
-                            InitiativeRow(creature: creature)
+                            InitiativeRow(creature: character)
                         }
                     }
                     .onDelete { index in
@@ -41,9 +45,9 @@ struct EncounterView: View {
                 VStack {
                     Spacer()
                     Button {
-                        let creature = creatures.first
-                        creatures.removeFirst()
-                        creatures.append(creature!)
+                        let creature = encounterCreatures.first
+                        encounterCreatures.removeFirst()
+                        encounterCreatures.append(creature!)
                     } label: {
                         Text("Take turn")
                             .foregroundColor(.white)
@@ -59,12 +63,17 @@ struct EncounterView: View {
             .navigationTitle(Text("Encounter"))
             .navigationBarBackButtonHidden(true)
             .toolbar {
-                ToolbarItems(creatures: $creatures, editMode: $isInEditMode, isAddingNewCreature: $isAddingNewCreature)
+                ToolbarItems(creatures: $encounterCreatures, editMode: $isInEditMode, isAddingNewCreature: $isAddingNewCreature)
             }
             .sheet(isPresented: $isAddingNewCreature) {
                 AddNewCreatureView(creatures: $creatures, isOpen: $isAddingNewCreature)
             }
-
+            .onChange(of: creatures) { newValue in
+                encounterCreatures = creatures + characters
+            }
+        }
+        .onAppear {
+            encounterCreatures = creatures + characters
         }
     }
     
@@ -76,6 +85,6 @@ struct EncounterView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        EncounterView()
+        EncounterView(creatures: .constant([]), characters: .constant([]))
     }
 }

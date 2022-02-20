@@ -14,6 +14,7 @@
 		3406B72827C25CF900F6DDEA /* PlayerCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3406B72727C25CF900F6DDEA /* PlayerCharacter.swift */; };
 		3406B72A27C25E0900F6DDEA /* CharacterRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3406B72927C25E0900F6DDEA /* CharacterRow.swift */; };
 		3406B72C27C25F4F00F6DDEA /* AddNewPCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3406B72B27C25F4F00F6DDEA /* AddNewPCView.swift */; };
+		3406B72E27C2634100F6DDEA /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3406B72D27C2634100F6DDEA /* Character.swift */; };
 		34110E7B27BA38D400948887 /* niftyinitiativetrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34110E7A27BA38D400948887 /* niftyinitiativetrackerApp.swift */; };
 		34110E7D27BA38D400948887 /* EncounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34110E7C27BA38D400948887 /* EncounterView.swift */; };
 		34110E7F27BA38D500948887 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34110E7E27BA38D500948887 /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		3406B72727C25CF900F6DDEA /* PlayerCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCharacter.swift; sourceTree = "<group>"; };
 		3406B72927C25E0900F6DDEA /* CharacterRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRow.swift; sourceTree = "<group>"; };
 		3406B72B27C25F4F00F6DDEA /* AddNewPCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPCView.swift; sourceTree = "<group>"; };
+		3406B72D27C2634100F6DDEA /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		34110E7727BA38D400948887 /* Initiative Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Initiative Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34110E7A27BA38D400948887 /* niftyinitiativetrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = niftyinitiativetrackerApp.swift; sourceTree = "<group>"; };
 		34110E7C27BA38D400948887 /* EncounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncounterView.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			children = (
 				34110EA627BA8D3B00948887 /* Creature.swift */,
 				3406B72727C25CF900F6DDEA /* PlayerCharacter.swift */,
+				3406B72D27C2634100F6DDEA /* Character.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				3406B72A27C25E0900F6DDEA /* CharacterRow.swift in Sources */,
 				34110EA727BA8D3B00948887 /* Creature.swift in Sources */,
 				34110E7D27BA38D400948887 /* EncounterView.swift in Sources */,
+				3406B72E27C2634100F6DDEA /* Character.swift in Sources */,
 				3406B72127C25A8100F6DDEA /* NITTabView.swift in Sources */,
 				3406B71F27C259BE00F6DDEA /* AddNewCreatureView.swift in Sources */,
 				3406B72827C25CF900F6DDEA /* PlayerCharacter.swift in Sources */,

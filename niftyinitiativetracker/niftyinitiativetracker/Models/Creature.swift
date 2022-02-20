@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Creature: Identifiable, Equatable {
+struct Creature: Character, Identifiable, Equatable {
     let id = UUID()
     let name: String
     var initiativeRoll: Int

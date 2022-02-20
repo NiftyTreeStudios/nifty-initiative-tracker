@@ -13,7 +13,7 @@ struct PartyView: View {
     
     @State private var isAddingNewPC: Bool = false
     
-    @State private var characters: [PlayerCharacter] = []
+    @Binding var characters: [PlayerCharacter]
     
     var body: some View {
         NavigationView {
@@ -72,6 +72,6 @@ struct PartyView: View {
 
 struct PartyView_Previews: PreviewProvider {
     static var previews: some View {
-        PartyView()
+        PartyView(characters: .constant([]))
     }
 }

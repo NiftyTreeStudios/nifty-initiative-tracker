@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InitiativeRow: View {
     
-    let creature: Creature
+    let creature: Character
     
     var body: some View {
         HStack {

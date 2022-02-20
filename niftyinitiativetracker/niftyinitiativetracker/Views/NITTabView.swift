@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct NITTabView: View {
+    
+    @State private var characters: [PlayerCharacter] = []
+    @State private var creatures: [Creature] = []
+    
     var body: some View {
         TabView {
-            EncounterView()
+            EncounterView(creatures: $creatures, characters: $characters)
                 .tabItem {
                     VStack {
                         Image(systemName: "gamecontroller")
@@ -18,7 +22,7 @@ struct NITTabView: View {
                     }
                 }
                 .tag("Encounter")
-            PartyView()
+            PartyView(characters: $characters)
                 .tabItem {
                     VStack {
                         Image(systemName: "person.3")

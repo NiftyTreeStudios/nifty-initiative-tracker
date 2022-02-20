@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct PlayerCharacter: Identifiable, Equatable {
+struct PlayerCharacter: Character, Identifiable, Equatable {
     let id = UUID()
     let name: String
     let player: String?
     var initiativeRoll: Int
     var modifier: Int = 0
-    let isPC: Bool = true
+    var isPC: Bool = true
 }
