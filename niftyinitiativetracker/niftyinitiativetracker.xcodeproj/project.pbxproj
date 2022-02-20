@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3406B71C27C2592100F6DDEA /* ToolbarItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3406B71B27C2592100F6DDEA /* ToolbarItems.swift */; };
+		3406B71F27C259BE00F6DDEA /* AddNewCreatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3406B71E27C259BE00F6DDEA /* AddNewCreatureView.swift */; };
 		34110E7B27BA38D400948887 /* niftyinitiativetrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34110E7A27BA38D400948887 /* niftyinitiativetrackerApp.swift */; };
 		34110E7D27BA38D400948887 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34110E7C27BA38D400948887 /* ContentView.swift */; };
 		34110E7F27BA38D500948887 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34110E7E27BA38D500948887 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		3406B71B27C2592100F6DDEA /* ToolbarItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarItems.swift; sourceTree = "<group>"; };
+		3406B71E27C259BE00F6DDEA /* AddNewCreatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCreatureView.swift; sourceTree = "<group>"; };
 		34110E7727BA38D400948887 /* Initiative Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Initiative Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34110E7A27BA38D400948887 /* niftyinitiativetrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = niftyinitiativetrackerApp.swift; sourceTree = "<group>"; };
 		34110E7C27BA38D400948887 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -85,6 +87,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		3406B71D27C259A600F6DDEA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3406B71E27C259BE00F6DDEA /* AddNewCreatureView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		34110E6E27BA38D400948887 = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +118,7 @@
 		34110E7927BA38D400948887 /* niftyinitiativetracker */ = {
 			isa = PBXGroup;
 			children = (
+				3406B71D27C259A600F6DDEA /* Views */,
 				3406B71A27C2590700F6DDEA /* Components */,
 				34110E7A27BA38D400948887 /* niftyinitiativetrackerApp.swift */,
 				34110E7C27BA38D400948887 /* ContentView.swift */,
@@ -276,6 +287,7 @@
 			files = (
 				34110EA727BA8D3B00948887 /* Creature.swift in Sources */,
 				34110E7D27BA38D400948887 /* ContentView.swift in Sources */,
+				3406B71F27C259BE00F6DDEA /* AddNewCreatureView.swift in Sources */,
 				34110E7B27BA38D400948887 /* niftyinitiativetrackerApp.swift in Sources */,
 				3406B71C27C2592100F6DDEA /* ToolbarItems.swift in Sources */,
 				34110EA527BA8D2100948887 /* InitiativeRow.swift in Sources */,
