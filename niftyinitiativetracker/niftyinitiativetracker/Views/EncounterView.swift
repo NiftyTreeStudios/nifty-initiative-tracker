@@ -56,7 +56,7 @@ struct EncounterView: View {
                     }.disabled(creatures.isEmpty)
                 }.padding()
             }
-            .navigationTitle(Text("Nifty Initiative Tracker"))
+            .navigationTitle(Text("Encounter"))
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItems(creatures: $creatures, editMode: $isInEditMode, isAddingNewCreature: $isAddingNewCreature)

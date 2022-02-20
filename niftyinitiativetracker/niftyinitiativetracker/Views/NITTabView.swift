@@ -13,11 +13,19 @@ struct NITTabView: View {
             EncounterView()
                 .tabItem {
                     VStack {
-                        Image(systemName: "")
+                        Image(systemName: "gamecontroller")
                         Text("Encounter")
                     }
                 }
                 .tag("Encounter")
+            PartyView()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "person.3")
+                        Text("Party")
+                    }
+                }
+                .tag("Party")
         }
     }
 }
