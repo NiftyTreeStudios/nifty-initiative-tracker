@@ -25,8 +25,6 @@ struct AddNewPCView: View {
                 TextField("Name", text: $name)
                 TextField("Player", text: $player)
                 Stepper("Modifier: \(initiativeModifier)", value: $initiativeModifier)
-                    
-                Toggle("Player character", isOn: $isPC)
             }
             Button {
                 characters.append(

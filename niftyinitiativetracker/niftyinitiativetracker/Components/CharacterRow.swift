@@ -13,11 +13,16 @@ struct CharacterRow: View {
     
     var body: some View {
         HStack {
-            Text(character.name)
+            VStack(alignment: .leading) {
+                Text(character.name)
+                    .font(.title3)
+                if let player = character.player {
+                    Text(player)
+                        .font(.caption2)
+                }
+            }
             Spacer()
-            Text("\(getInitiativeCount(roll: character.initiativeRoll, modifier: character.modifier))")
         }
-        .font(.title3)
         .padding()
         .overlay(
             RoundedRectangle(cornerRadius: 25)
