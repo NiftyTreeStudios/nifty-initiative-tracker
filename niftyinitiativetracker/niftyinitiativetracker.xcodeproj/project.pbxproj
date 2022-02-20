@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		3406B71C27C2592100F6DDEA /* ToolbarItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3406B71B27C2592100F6DDEA /* ToolbarItems.swift */; };
 		3406B71F27C259BE00F6DDEA /* AddNewCreatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3406B71E27C259BE00F6DDEA /* AddNewCreatureView.swift */; };
+		3406B72127C25A8100F6DDEA /* NITTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3406B72027C25A8100F6DDEA /* NITTabView.swift */; };
 		34110E7B27BA38D400948887 /* niftyinitiativetrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34110E7A27BA38D400948887 /* niftyinitiativetrackerApp.swift */; };
-		34110E7D27BA38D400948887 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34110E7C27BA38D400948887 /* ContentView.swift */; };
+		34110E7D27BA38D400948887 /* EncounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34110E7C27BA38D400948887 /* EncounterView.swift */; };
 		34110E7F27BA38D500948887 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34110E7E27BA38D500948887 /* Assets.xcassets */; };
 		34110E8227BA38D500948887 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34110E8127BA38D500948887 /* Preview Assets.xcassets */; };
 		34110E8C27BA38D500948887 /* niftyinitiativetrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34110E8B27BA38D500948887 /* niftyinitiativetrackerTests.swift */; };
@@ -40,9 +41,10 @@
 /* Begin PBXFileReference section */
 		3406B71B27C2592100F6DDEA /* ToolbarItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarItems.swift; sourceTree = "<group>"; };
 		3406B71E27C259BE00F6DDEA /* AddNewCreatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCreatureView.swift; sourceTree = "<group>"; };
+		3406B72027C25A8100F6DDEA /* NITTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NITTabView.swift; sourceTree = "<group>"; };
 		34110E7727BA38D400948887 /* Initiative Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Initiative Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34110E7A27BA38D400948887 /* niftyinitiativetrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = niftyinitiativetrackerApp.swift; sourceTree = "<group>"; };
-		34110E7C27BA38D400948887 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		34110E7C27BA38D400948887 /* EncounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncounterView.swift; sourceTree = "<group>"; };
 		34110E7E27BA38D500948887 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34110E8127BA38D500948887 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		34110E8727BA38D500948887 /* niftyinitiativetrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = niftyinitiativetrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,11 +123,12 @@
 				3406B71D27C259A600F6DDEA /* Views */,
 				3406B71A27C2590700F6DDEA /* Components */,
 				34110E7A27BA38D400948887 /* niftyinitiativetrackerApp.swift */,
-				34110E7C27BA38D400948887 /* ContentView.swift */,
+				34110E7C27BA38D400948887 /* EncounterView.swift */,
 				34110E7E27BA38D500948887 /* Assets.xcassets */,
 				34110E8027BA38D500948887 /* Preview Content */,
 				34110EA427BA8D2100948887 /* InitiativeRow.swift */,
 				34110EA627BA8D3B00948887 /* Creature.swift */,
+				3406B72027C25A8100F6DDEA /* NITTabView.swift */,
 			);
 			path = niftyinitiativetracker;
 			sourceTree = "<group>";
@@ -286,7 +289,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				34110EA727BA8D3B00948887 /* Creature.swift in Sources */,
-				34110E7D27BA38D400948887 /* ContentView.swift in Sources */,
+				34110E7D27BA38D400948887 /* EncounterView.swift in Sources */,
+				3406B72127C25A8100F6DDEA /* NITTabView.swift in Sources */,
 				3406B71F27C259BE00F6DDEA /* AddNewCreatureView.swift in Sources */,
 				34110E7B27BA38D400948887 /* niftyinitiativetrackerApp.swift in Sources */,
 				3406B71C27C2592100F6DDEA /* ToolbarItems.swift in Sources */,
