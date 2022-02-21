@@ -11,7 +11,7 @@ import SwiftUI
 struct niftyinitiativetrackerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NITTabView()
         }
     }
 }
