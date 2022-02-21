@@ -27,8 +27,14 @@ struct EncounterView: View {
                         HStack {
                             if isInEditMode {
                                 Button {
-                                    if let index = creatures.firstIndex(of: character as! Creature) {
+                                    if let index = encounterCreatures.firstIndex(where: { $0.id == character.id }) {
+                                        encounterCreatures.remove(at: index)
+                                    }
+                                    if let index = creatures.firstIndex(where: { $0.id == character.id }) {
                                         creatures.remove(at: index)
+                                    }
+                                    if let index = characters.firstIndex(where: { $0.id == character.id }) {
+                                        characters.remove(at: index)
                                     }
                                 } label: {
                                     Image(systemName: "minus.circle")
