@@ -22,6 +22,8 @@ struct CharacterRow: View {
                 }
             }
             Spacer()
+            Text("\(character.initiativeRoll + character.modifier)")
+                .font(.title3)
         }
         .padding()
         .overlay(

@@ -28,8 +28,11 @@ struct PartyView: View {
                                     }
                                 } label: {
                                     Image(systemName: "minus.circle")
+                                        .font(.title3)
+                                        .foregroundColor(.red)
                                 }
-
+                                .padding(.leading)
+                                .padding(.trailing, -10)
                             }
                             CharacterRow(character: character)
                         }
@@ -48,6 +51,15 @@ struct PartyView: View {
                             isInEditMode.toggle()
                         } label: {
                             Text("Edit")
+                        }.disabled(characters.isEmpty)
+                        Button {
+                            for index in 0..<characters.count {
+                                var character = characters[index]
+                                character.rerollInitiative()
+                                characters[index] = character
+                            }
+                        } label: {
+                            Image(systemName: "arrow.clockwise")
                         }.disabled(characters.isEmpty)
                         Button {
                             isAddingNewPC = true

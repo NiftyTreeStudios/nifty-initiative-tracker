@@ -15,3 +15,9 @@ struct PlayerCharacter: Character, Identifiable, Equatable, Codable {
     var modifier: Int = 0
     var isPC: Bool = true
 }
+
+extension PlayerCharacter {
+    mutating func rerollInitiative() {
+        self.initiativeRoll = Int.random(in: 1...20) + self.modifier
+    }
+}

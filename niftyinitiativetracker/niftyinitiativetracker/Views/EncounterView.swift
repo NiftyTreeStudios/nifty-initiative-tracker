@@ -35,8 +35,11 @@ struct EncounterView: View {
                                     }
                                 } label: {
                                     Image(systemName: "minus.circle")
+                                        .font(.title3)
+                                        .foregroundColor(.red)
                                 }
-
+                                .padding(.leading)
+                                .padding(.trailing, -10)
                             }
                             InitiativeRow(creature: character)
                         }
