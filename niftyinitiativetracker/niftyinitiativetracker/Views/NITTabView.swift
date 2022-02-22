@@ -30,6 +30,8 @@ struct NITTabView: View {
                     }
                 }
                 .tag("Party")
+        }.onAppear {
+            characters = loadParty()
         }
     }
 }
