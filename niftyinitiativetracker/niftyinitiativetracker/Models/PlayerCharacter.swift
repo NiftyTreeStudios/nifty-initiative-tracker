@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct PlayerCharacter: Character, Identifiable, Equatable {
-    let id = UUID()
+struct PlayerCharacter: Character, Identifiable, Equatable, Codable {
+    var id = UUID()
     let name: String
     let player: String?
     var initiativeRoll: Int

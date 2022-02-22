@@ -57,6 +57,9 @@ struct PartyView: View {
                     }
                 }
             }
+            .onChange(of: characters, perform: { newValue in
+                saveParty(characters)
+            })
             .sheet(isPresented: $isAddingNewPC) {
                 AddNewPCView(characters: $characters, isOpen: $isAddingNewPC)
             }

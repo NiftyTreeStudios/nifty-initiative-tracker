@@ -24,6 +24,7 @@
 		34110E9827BA38D500948887 /* niftyinitiativetrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34110E9727BA38D500948887 /* niftyinitiativetrackerUITestsLaunchTests.swift */; };
 		34110EA527BA8D2100948887 /* InitiativeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34110EA427BA8D2100948887 /* InitiativeRow.swift */; };
 		34110EA727BA8D3B00948887 /* Creature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34110EA627BA8D3B00948887 /* Creature.swift */; };
+		34198AA327C4C91D0037DADD /* PartyCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34198AA227C4C91D0037DADD /* PartyCoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		34110E9727BA38D500948887 /* niftyinitiativetrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = niftyinitiativetrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		34110EA427BA8D2100948887 /* InitiativeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitiativeRow.swift; sourceTree = "<group>"; };
 		34110EA627BA8D3B00948887 /* Creature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creature.swift; sourceTree = "<group>"; };
+		34198AA227C4C91D0037DADD /* PartyCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyCoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 		34110E7927BA38D400948887 /* niftyinitiativetracker */ = {
 			isa = PBXGroup;
 			children = (
+				34198AA127C4C9050037DADD /* Utilities */,
 				3406B71A27C2590700F6DDEA /* Components */,
 				3406B72227C25B5E00F6DDEA /* Models */,
 				3406B71D27C259A600F6DDEA /* Views */,
@@ -179,6 +182,14 @@
 				34110E9727BA38D500948887 /* niftyinitiativetrackerUITestsLaunchTests.swift */,
 			);
 			path = niftyinitiativetrackerUITests;
+			sourceTree = "<group>";
+		};
+		34198AA127C4C9050037DADD /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				34198AA227C4C91D0037DADD /* PartyCoder.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,6 +324,7 @@
 			files = (
 				3406B72A27C25E0900F6DDEA /* CharacterRow.swift in Sources */,
 				34110EA727BA8D3B00948887 /* Creature.swift in Sources */,
+				34198AA327C4C91D0037DADD /* PartyCoder.swift in Sources */,
 				34110E7D27BA38D400948887 /* EncounterView.swift in Sources */,
 				3406B72E27C2634100F6DDEA /* Character.swift in Sources */,
 				3406B72127C25A8100F6DDEA /* NITTabView.swift in Sources */,
