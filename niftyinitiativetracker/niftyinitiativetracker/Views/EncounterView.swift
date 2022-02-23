@@ -61,7 +61,7 @@ struct EncounterView: View {
                             .padding(.horizontal, 50)
                             .background {
                                 Capsule()
-                                    .foregroundColor(.blue)
+                                    .foregroundColor(encounterCreatures.isEmpty ? .gray.opacity(0.5) : .blue)
                             }
                     }.disabled(creatures.isEmpty)
                 }.padding()
