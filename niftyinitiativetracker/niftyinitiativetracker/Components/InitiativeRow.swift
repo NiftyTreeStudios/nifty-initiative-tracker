@@ -42,6 +42,6 @@ struct InitiativeRow: View {
 
 struct InitiativeRow_Previews: PreviewProvider {
     static var previews: some View {
-        InitiativeRow(creature: Creature(name: "Test", initiativeRoll: 15, modifier: 1))
+        InitiativeRow(creature: Character(name: "Test", initiativeRoll: 15, modifier: 1))
     }
 }

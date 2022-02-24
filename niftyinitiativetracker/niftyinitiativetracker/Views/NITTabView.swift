@@ -9,12 +9,12 @@ import SwiftUI
 
 struct NITTabView: View {
     
-    @State private var characters: [PlayerCharacter] = []
-    @State private var creatures: [Creature] = []
+    @State private var characters: [Character] = []
+    @State private var mobs: [Character] = []
     
     var body: some View {
         TabView {
-            EncounterView(creatures: $creatures, characters: $characters)
+            EncounterView(mobs: $mobs, characters: $characters)
                 .tabItem {
                     VStack {
                         Image(systemName: "gamecontroller")

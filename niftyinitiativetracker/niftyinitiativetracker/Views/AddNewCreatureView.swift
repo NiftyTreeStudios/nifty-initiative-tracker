@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddNewCreatureView: View {
     
-    @Binding var creatures: [Creature]
+    @Binding var mobs: [Character]
     @Binding var isOpen: Bool
     
     @State private var name: String = ""
@@ -27,8 +27,8 @@ struct AddNewCreatureView: View {
                 Toggle("Player character", isOn: $isPC)
             }
             Button {
-                creatures.append(
-                    Creature(
+                mobs.append(
+                    Character(
                         name: name,
                         initiativeRoll: Int.random(in: 1...20),
                         modifier: initiativeModifier,

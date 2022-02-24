@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddNewPCView: View {
     
-    @Binding var characters: [PlayerCharacter]
+    @Binding var characters: [Character]
     @Binding var isOpen: Bool
     
     @State private var name: String = ""
@@ -28,11 +28,12 @@ struct AddNewPCView: View {
             }
             Button {
                 characters.append(
-                    PlayerCharacter(
+                    Character(
                         name: name,
-                        player: player,
                         initiativeRoll: Int.random(in: 1...20),
-                        modifier: initiativeModifier
+                        modifier: initiativeModifier,
+                        isPC: true,
+                        player: player
                     )
                 )
                 isOpen = false

@@ -7,10 +7,17 @@
 
 import Foundation
 
-protocol Character {
-    var id: UUID { get }
-    var name: String { get }
-    var initiativeRoll: Int { get set }
-    var modifier: Int { get set }
-    var isPC: Bool { get set }
+struct Character: Identifiable, Equatable, Codable  {
+    var id = UUID()
+    var name: String
+    var initiativeRoll: Int
+    var modifier: Int
+    var isPC: Bool = false
+    var player: String? = nil
+}
+
+extension Character {
+    mutating func rerollInitiative() {
+        self.initiativeRoll = Int.random(in: 1...20) + self.modifier
+    }
 }

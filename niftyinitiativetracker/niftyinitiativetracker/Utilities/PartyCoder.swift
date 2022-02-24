@@ -9,17 +9,17 @@ import Foundation
 
 /// Saves party into user defaults.
 /// - Parameters:
-///   - party: The `PlayerCharacter` array that is being saved.
-func saveParty(_ party: [PlayerCharacter]) {
+///   - party: The `Character` array that is being saved.
+func saveParty(_ party: [Character]) {
     let data = party.map { try? JSONEncoder().encode($0) }
     UserDefaults.standard.set(data, forKey: "Party")
 }
 
 /// Loads party from user defaults.
-/// - Returns: A array of `PlayerCharacter`.
-func loadParty() -> [PlayerCharacter] {
+/// - Returns: A array of `Character`.
+func loadParty() -> [Character] {
     guard let encodedData = UserDefaults.standard.array(forKey: "Party") as? [Data] else {
         return []
     }
-    return encodedData.map { try! JSONDecoder().decode(PlayerCharacter.self, from: $0) }
+    return encodedData.map { try! JSONDecoder().decode(Character.self, from: $0) }
 }

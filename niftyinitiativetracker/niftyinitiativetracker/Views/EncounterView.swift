@@ -13,25 +13,25 @@ struct EncounterView: View {
     
     @State private var isAddingNewCreature: Bool = false
     
-    @Binding var creatures: [Creature]
+    @Binding var mobs: [Character]
     
-    @Binding var characters: [PlayerCharacter]
+    @Binding var characters: [Character]
     
-    @State private var encounterCreatures: [Character] = []
+    @State private var encounterCharacters: [Character] = []
     
     var body: some View {
         NavigationView {
             ZStack {
                 ScrollView {
-                    ForEach(encounterCreatures, id: \.id) { character in
+                    ForEach(encounterCharacters, id: \.id) { character in
                         HStack {
                             if isInEditMode {
                                 Button {
-                                    if let index = encounterCreatures.firstIndex(where: { $0.id == character.id }) {
-                                        encounterCreatures.remove(at: index)
+                                    if let index = encounterCharacters.firstIndex(where: { $0.id == character.id }) {
+                                        encounterCharacters.remove(at: index)
                                     }
-                                    if let index = creatures.firstIndex(where: { $0.id == character.id }) {
-                                        creatures.remove(at: index)
+                                    if let index = mobs.firstIndex(where: { $0.id == character.id }) {
+                                        mobs.remove(at: index)
                                     }
                                 } label: {
                                     Image(systemName: "minus.circle")
@@ -51,9 +51,9 @@ struct EncounterView: View {
                 VStack {
                     Spacer()
                     Button {
-                        let creature = encounterCreatures.first
-                        encounterCreatures.removeFirst()
-                        encounterCreatures.append(creature!)
+                        let creature = encounterCharacters.first
+                        encounterCharacters.removeFirst()
+                        encounterCharacters.append(creature!)
                     } label: {
                         Text("Take turn")
                             .foregroundColor(.white)
@@ -61,36 +61,36 @@ struct EncounterView: View {
                             .padding(.horizontal, 50)
                             .background {
                                 Capsule()
-                                    .foregroundColor(encounterCreatures.isEmpty ? .gray.opacity(0.5) : .blue)
+                                    .foregroundColor(encounterCharacters.isEmpty ? .gray.opacity(0.5) : .blue)
                             }
-                    }.disabled(creatures.isEmpty)
+                    }.disabled(mobs.isEmpty)
                 }.padding()
             }
             .navigationTitle(Text("Encounter"))
             .navigationBarBackButtonHidden(true)
             .toolbar {
-                ToolbarItems(creatures: $encounterCreatures, editMode: $isInEditMode, isAddingNewCreature: $isAddingNewCreature)
+                ToolbarItems(creatures: $encounterCharacters, editMode: $isInEditMode, isAddingNewCreature: $isAddingNewCreature)
             }
             .sheet(isPresented: $isAddingNewCreature) {
-                AddNewCreatureView(creatures: $creatures, isOpen: $isAddingNewCreature)
+                AddNewCreatureView(mobs: $mobs, isOpen: $isAddingNewCreature)
             }
-            .onChange(of: creatures) { newValue in
-                encounterCreatures = creatures + characters
+            .onChange(of: mobs) { newValue in
+                encounterCharacters = mobs + characters
             }
         }
         .onAppear {
-            encounterCreatures = creatures + characters
+            encounterCharacters = mobs + characters
         }
     }
     
     func deleteCreatures(at offsets: IndexSet) {
-        creatures.remove(atOffsets: offsets)
+        mobs.remove(atOffsets: offsets)
     }
     
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        EncounterView(creatures: .constant([]), characters: .constant([]))
+        EncounterView(mobs: .constant([]), characters: .constant([]))
     }
 }
