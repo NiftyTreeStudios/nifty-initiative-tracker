@@ -14,7 +14,7 @@ struct NITTabView: View {
     
     var body: some View {
         TabView {
-            EncounterView(mobs: $mobs, characters: $characters)
+            CharacterListView(mobs: $mobs, characters: $characters, isEncounter: true)
                 .tabItem {
                     VStack {
                         Image(systemName: "gamecontroller")
@@ -22,7 +22,7 @@ struct NITTabView: View {
                     }
                 }
                 .tag("Encounter")
-            PartyView(characters: $characters)
+            CharacterListView(mobs: $mobs, characters: $characters, isEncounter: false)
                 .tabItem {
                     VStack {
                         Image(systemName: "person.3")

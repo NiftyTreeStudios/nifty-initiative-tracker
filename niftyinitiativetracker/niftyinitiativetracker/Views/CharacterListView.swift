@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EncounterView: View {
+struct CharacterListView: View {
     
     @State private var isInEditMode: Bool = false
     
@@ -18,6 +18,8 @@ struct EncounterView: View {
     @Binding var characters: [Character]
     
     @State private var encounterCharacters: [Character] = []
+    
+    let isEncounter: Bool
     
     var body: some View {
         NavigationView {
@@ -49,36 +51,54 @@ struct EncounterView: View {
                     }
                 }
                 VStack {
-                    Spacer()
-                    Button {
-                        let creature = encounterCharacters.first
-                        encounterCharacters.removeFirst()
-                        encounterCharacters.append(creature!)
-                    } label: {
-                        Text("Take turn")
-                            .foregroundColor(.white)
-                            .padding()
-                            .padding(.horizontal, 50)
-                            .background {
-                                Capsule()
-                                    .foregroundColor(encounterCharacters.isEmpty ? .gray.opacity(0.5) : .blue)
-                            }
-                    }.disabled(mobs.isEmpty)
+                    if isEncounter {
+                        Spacer()
+                        Button {
+                            let creature = encounterCharacters.first
+                            encounterCharacters.removeFirst()
+                            encounterCharacters.append(creature!)
+                        } label: {
+                            Text("Take turn")
+                                .foregroundColor(.white)
+                                .padding()
+                                .padding(.horizontal, 50)
+                                .background {
+                                    Capsule()
+                                        .foregroundColor(encounterCharacters.isEmpty ? .gray.opacity(0.5) : .blue)
+                                }
+                        }.disabled(encounterCharacters.isEmpty)
+                    }
                 }.padding()
             }
-            .navigationTitle(Text("Encounter"))
+            .navigationTitle(Text(isEncounter ? "Encounter" : "Party"))
             .navigationBarBackButtonHidden(true)
             .toolbar {
-                ToolbarItems(creatures: $encounterCharacters, editMode: $isInEditMode, isAddingNewCreature: $isAddingNewCreature)
+                ToolbarItems(
+                    isEncounter: isEncounter,
+                    characters: $encounterCharacters,
+                    editMode: $isInEditMode,
+                    isAddingNewCreature: $isAddingNewCreature
+                )
             }
             .sheet(isPresented: $isAddingNewCreature) {
-                AddNewCreatureView(mobs: $mobs, isOpen: $isAddingNewCreature)
+                AddNewCharacterView(
+                    characters: $characters,
+                    mobs: $mobs,
+                    isOpen: $isAddingNewCreature,
+                    isPC: false,
+                    color: .red
+                )
             }
-            .onChange(of: mobs) { newValue in
+            .onChange(of: mobs) { _ in
                 encounterCharacters = mobs + characters
+            }
+            .onChange(of: characters) { _ in
+                encounterCharacters = mobs + characters
+                saveParty(characters)
             }
         }
         .onAppear {
+            characters = loadParty()
             encounterCharacters = mobs + characters
         }
     }
@@ -91,6 +111,7 @@ struct EncounterView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        EncounterView(mobs: .constant([]), characters: .constant([]))
+        CharacterListView(mobs: .constant([]), characters: .constant([]), isEncounter: false)
+        CharacterListView(mobs: .constant([]), characters: .constant([]), isEncounter: true)
     }
 }
