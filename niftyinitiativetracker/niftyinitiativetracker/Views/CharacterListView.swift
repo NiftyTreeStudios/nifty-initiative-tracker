@@ -24,32 +24,22 @@ struct CharacterListView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                ScrollView {
-                    ForEach(encounterCharacters, id: \.id) { character in
-                        HStack {
-                            if isInEditMode {
-                                Button {
-                                    if let index = encounterCharacters.firstIndex(where: { $0.id == character.id }) {
-                                        encounterCharacters.remove(at: index)
-                                    }
-                                    if let index = mobs.firstIndex(where: { $0.id == character.id }) {
-                                        mobs.remove(at: index)
-                                    }
-                                } label: {
-                                    Image(systemName: "minus.circle")
-                                        .font(.title3)
-                                        .foregroundColor(.red)
-                                }
-                                .padding(.leading)
-                                .padding(.trailing, -10)
-                            }
+                List {
+                    if isEncounter {
+                        ForEach(encounterCharacters, id: \.id) { character in
                             CharacterRow(character: character)
+                        }.onDelete { index in
+                            deleteCreatures(at: index, isPartyView: false)
+                        }
+                    } else {
+                        ForEach(characters) { character in
+                            CharacterRow(character: character)
+                        }.onDelete { index in
+                            deleteCreatures(at: index, isPartyView: true)
                         }
                     }
-                    .onDelete { index in
-                        deleteCreatures(at: index)
-                    }
                 }
+                .listStyle(.plain)
                 VStack {
                     if isEncounter {
                         Spacer()
@@ -75,8 +65,8 @@ struct CharacterListView: View {
             .toolbar {
                 ToolbarItems(
                     isEncounter: isEncounter,
-                    characters: $encounterCharacters,
-                    editMode: $isInEditMode,
+                    characters: $characters,
+                    encounterCharacters: $encounterCharacters,
                     isAddingNewCreature: $isAddingNewCreature
                 )
             }
@@ -103,8 +93,13 @@ struct CharacterListView: View {
         }
     }
     
-    func deleteCreatures(at offsets: IndexSet) {
-        mobs.remove(atOffsets: offsets)
+    func deleteCreatures(at offsets: IndexSet, isPartyView: Bool) {
+        let character = encounterCharacters[offsets.first!]
+        encounterCharacters.removeAll(where: { $0.id == character.id })
+        mobs.removeAll(where: { $0.id == character.id })
+        if isPartyView {
+            characters.removeAll(where: { $0.id == character.id })
+        }
     }
     
 }

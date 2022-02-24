@@ -42,9 +42,13 @@ struct AddNewCharacterView: View {
                     color: color
                 )
                 if isPC {
-                    characters.append(newCharacter)
-                } else {
-                    mobs.append(newCharacter)
+                    if characters.firstIndex(of: newCharacter) == nil {
+                        characters.append(newCharacter)
+                    }
+                } else if !isPC {
+                    if mobs.firstIndex(of: newCharacter) == nil {
+                        mobs.append(newCharacter)
+                    }
                 }
                 isOpen = false
             } label: {

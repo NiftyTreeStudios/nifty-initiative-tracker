@@ -13,27 +13,22 @@ struct ToolbarItems: ToolbarContent {
     
     @Binding var characters: [Character]
     
-    @Binding var editMode: Bool
+    @Binding var encounterCharacters: [Character]
     
     @Binding var isAddingNewCreature: Bool
     
     var body: some ToolbarContent {
         ToolbarItemGroup {
             HStack {
-                Button {
-                    editMode.toggle()
-                } label: {
-                    Text("Edit")
-                }.disabled(characters.isEmpty)
                 Spacer()
                 if isEncounter {
                     Button {
-                        characters.sort {
+                        encounterCharacters.sort {
                             ($0.initiativeRoll + $0.modifier) > ($1.initiativeRoll + $1.modifier)
                         }
                     } label: {
                         Image(systemName: "line.3.horizontal.decrease")
-                    }.disabled(characters.isEmpty)
+                    }.disabled(encounterCharacters.isEmpty)
                 } else {
                     Button {
                         for index in 0..<characters.count {
@@ -41,7 +36,6 @@ struct ToolbarItems: ToolbarContent {
                             character.rerollInitiative()
                             characters[index] = character
                         }
-                        print(characters)
                         saveParty(characters)
                     } label: {
                         Image(systemName: "arrow.clockwise")
@@ -52,9 +46,6 @@ struct ToolbarItems: ToolbarContent {
                 } label: {
                     Image(systemName: "plus")
                 }
-            }
-            .onChange(of: characters) { _ in
-                saveParty(characters)
             }
         }
     }

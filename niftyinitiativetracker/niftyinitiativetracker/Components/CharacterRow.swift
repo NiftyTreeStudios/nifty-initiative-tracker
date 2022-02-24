@@ -37,8 +37,6 @@ struct CharacterRow: View {
                     lineWidth: 5
                 )
         )
-        .padding(.horizontal)
-        .padding(.bottom, 5)
     }
     
     private func getInitiativeCount(roll: Int, modifier: Int) -> Int {
