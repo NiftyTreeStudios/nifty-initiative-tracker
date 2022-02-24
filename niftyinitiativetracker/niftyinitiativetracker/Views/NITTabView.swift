@@ -9,12 +9,12 @@ import SwiftUI
 
 struct NITTabView: View {
     
-    @State private var characters: [PlayerCharacter] = []
-    @State private var creatures: [Creature] = []
+    @State private var characters: [Character] = []
+    @State private var mobs: [Character] = []
     
     var body: some View {
         TabView {
-            EncounterView(creatures: $creatures, characters: $characters)
+            CharacterListView(mobs: $mobs, characters: $characters, isEncounter: true)
                 .tabItem {
                     VStack {
                         Image(systemName: "gamecontroller")
@@ -22,7 +22,7 @@ struct NITTabView: View {
                     }
                 }
                 .tag("Encounter")
-            PartyView(characters: $characters)
+            CharacterListView(mobs: $mobs, characters: $characters, isEncounter: false)
                 .tabItem {
                     VStack {
                         Image(systemName: "person.3")

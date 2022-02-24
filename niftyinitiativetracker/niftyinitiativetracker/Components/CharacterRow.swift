@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CharacterRow: View {
     
-    let character: PlayerCharacter
+    let character: Character
     
     var body: some View {
         HStack {
@@ -26,15 +26,17 @@ struct CharacterRow: View {
                 .font(.title3)
         }
         .padding()
-        .overlay(
+        .background(
             RoundedRectangle(cornerRadius: 25)
                 .stroke(
-                    character.isPC ? .blue : .red,
+                    LinearGradient(
+                        colors: [character.color, character.color.opacity(0.8)],
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    ),
                     lineWidth: 5
                 )
         )
-        .padding(.horizontal)
-        .padding(.bottom, 5)
     }
     
     private func getInitiativeCount(roll: Int, modifier: Int) -> Int {
@@ -50,11 +52,12 @@ struct CharacterRow: View {
 struct CharacterRow_Previews: PreviewProvider {
     static var previews: some View {
         CharacterRow(character:
-                        PlayerCharacter(
+                        Character(
                             name: "Skaar Lonehunter Hulkar",
-                            player: "Iiro",
-                            initiativeRoll: 18,
-                            modifier: -1
+                            initiativeRoll: Int.random(in: 1...20),
+                            modifier: 18,
+                            isPC: true,
+                            player: "Iiro"
                         )
         )
     }

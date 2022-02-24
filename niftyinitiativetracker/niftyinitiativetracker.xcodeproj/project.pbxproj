@@ -8,22 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		3406B71C27C2592100F6DDEA /* ToolbarItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3406B71B27C2592100F6DDEA /* ToolbarItems.swift */; };
-		3406B71F27C259BE00F6DDEA /* AddNewCreatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3406B71E27C259BE00F6DDEA /* AddNewCreatureView.swift */; };
 		3406B72127C25A8100F6DDEA /* NITTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3406B72027C25A8100F6DDEA /* NITTabView.swift */; };
-		3406B72427C25BA000F6DDEA /* PartyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3406B72327C25BA000F6DDEA /* PartyView.swift */; };
-		3406B72827C25CF900F6DDEA /* PlayerCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3406B72727C25CF900F6DDEA /* PlayerCharacter.swift */; };
 		3406B72A27C25E0900F6DDEA /* CharacterRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3406B72927C25E0900F6DDEA /* CharacterRow.swift */; };
-		3406B72C27C25F4F00F6DDEA /* AddNewPCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3406B72B27C25F4F00F6DDEA /* AddNewPCView.swift */; };
+		3406B72C27C25F4F00F6DDEA /* AddNewCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3406B72B27C25F4F00F6DDEA /* AddNewCharacterView.swift */; };
 		3406B72E27C2634100F6DDEA /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3406B72D27C2634100F6DDEA /* Character.swift */; };
+		340EDABA27C7FA6F00835DF1 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340EDAB927C7FA6F00835DF1 /* ColorExtension.swift */; };
 		34110E7B27BA38D400948887 /* niftyinitiativetrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34110E7A27BA38D400948887 /* niftyinitiativetrackerApp.swift */; };
-		34110E7D27BA38D400948887 /* EncounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34110E7C27BA38D400948887 /* EncounterView.swift */; };
+		34110E7D27BA38D400948887 /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34110E7C27BA38D400948887 /* CharacterListView.swift */; };
 		34110E7F27BA38D500948887 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34110E7E27BA38D500948887 /* Assets.xcassets */; };
 		34110E8227BA38D500948887 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34110E8127BA38D500948887 /* Preview Assets.xcassets */; };
 		34110E8C27BA38D500948887 /* niftyinitiativetrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34110E8B27BA38D500948887 /* niftyinitiativetrackerTests.swift */; };
 		34110E9627BA38D500948887 /* niftyinitiativetrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34110E9527BA38D500948887 /* niftyinitiativetrackerUITests.swift */; };
 		34110E9827BA38D500948887 /* niftyinitiativetrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34110E9727BA38D500948887 /* niftyinitiativetrackerUITestsLaunchTests.swift */; };
-		34110EA527BA8D2100948887 /* InitiativeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34110EA427BA8D2100948887 /* InitiativeRow.swift */; };
-		34110EA727BA8D3B00948887 /* Creature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34110EA627BA8D3B00948887 /* Creature.swift */; };
 		34198AA327C4C91D0037DADD /* PartyCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34198AA227C4C91D0037DADD /* PartyCoder.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,16 +42,14 @@
 
 /* Begin PBXFileReference section */
 		3406B71B27C2592100F6DDEA /* ToolbarItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarItems.swift; sourceTree = "<group>"; };
-		3406B71E27C259BE00F6DDEA /* AddNewCreatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCreatureView.swift; sourceTree = "<group>"; };
 		3406B72027C25A8100F6DDEA /* NITTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NITTabView.swift; sourceTree = "<group>"; };
-		3406B72327C25BA000F6DDEA /* PartyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyView.swift; sourceTree = "<group>"; };
-		3406B72727C25CF900F6DDEA /* PlayerCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCharacter.swift; sourceTree = "<group>"; };
 		3406B72927C25E0900F6DDEA /* CharacterRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRow.swift; sourceTree = "<group>"; };
-		3406B72B27C25F4F00F6DDEA /* AddNewPCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPCView.swift; sourceTree = "<group>"; };
+		3406B72B27C25F4F00F6DDEA /* AddNewCharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCharacterView.swift; sourceTree = "<group>"; };
 		3406B72D27C2634100F6DDEA /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		340EDAB927C7FA6F00835DF1 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		34110E7727BA38D400948887 /* Initiative Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Initiative Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34110E7A27BA38D400948887 /* niftyinitiativetrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = niftyinitiativetrackerApp.swift; sourceTree = "<group>"; };
-		34110E7C27BA38D400948887 /* EncounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncounterView.swift; sourceTree = "<group>"; };
+		34110E7C27BA38D400948887 /* CharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
 		34110E7E27BA38D500948887 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34110E8127BA38D500948887 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		34110E8727BA38D500948887 /* niftyinitiativetrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = niftyinitiativetrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,8 +57,6 @@
 		34110E9127BA38D500948887 /* niftyinitiativetrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = niftyinitiativetrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		34110E9527BA38D500948887 /* niftyinitiativetrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = niftyinitiativetrackerUITests.swift; sourceTree = "<group>"; };
 		34110E9727BA38D500948887 /* niftyinitiativetrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = niftyinitiativetrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		34110EA427BA8D2100948887 /* InitiativeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitiativeRow.swift; sourceTree = "<group>"; };
-		34110EA627BA8D3B00948887 /* Creature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creature.swift; sourceTree = "<group>"; };
 		34198AA227C4C91D0037DADD /* PartyCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyCoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,7 +88,6 @@
 		3406B71A27C2590700F6DDEA /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				34110EA427BA8D2100948887 /* InitiativeRow.swift */,
 				3406B71B27C2592100F6DDEA /* ToolbarItems.swift */,
 				3406B72927C25E0900F6DDEA /* CharacterRow.swift */,
 			);
@@ -106,11 +97,9 @@
 		3406B71D27C259A600F6DDEA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3406B71E27C259BE00F6DDEA /* AddNewCreatureView.swift */,
-				34110E7C27BA38D400948887 /* EncounterView.swift */,
+				34110E7C27BA38D400948887 /* CharacterListView.swift */,
 				3406B72027C25A8100F6DDEA /* NITTabView.swift */,
-				3406B72327C25BA000F6DDEA /* PartyView.swift */,
-				3406B72B27C25F4F00F6DDEA /* AddNewPCView.swift */,
+				3406B72B27C25F4F00F6DDEA /* AddNewCharacterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -118,11 +107,17 @@
 		3406B72227C25B5E00F6DDEA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				34110EA627BA8D3B00948887 /* Creature.swift */,
-				3406B72727C25CF900F6DDEA /* PlayerCharacter.swift */,
 				3406B72D27C2634100F6DDEA /* Character.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		340EDAB827C7FA6100835DF1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				340EDAB927C7FA6F00835DF1 /* ColorExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		34110E6E27BA38D400948887 = {
@@ -187,6 +182,7 @@
 		34198AA127C4C9050037DADD /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				340EDAB827C7FA6100835DF1 /* Extensions */,
 				34198AA227C4C91D0037DADD /* PartyCoder.swift */,
 			);
 			path = Utilities;
@@ -323,18 +319,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3406B72A27C25E0900F6DDEA /* CharacterRow.swift in Sources */,
-				34110EA727BA8D3B00948887 /* Creature.swift in Sources */,
 				34198AA327C4C91D0037DADD /* PartyCoder.swift in Sources */,
-				34110E7D27BA38D400948887 /* EncounterView.swift in Sources */,
+				34110E7D27BA38D400948887 /* CharacterListView.swift in Sources */,
+				340EDABA27C7FA6F00835DF1 /* ColorExtension.swift in Sources */,
 				3406B72E27C2634100F6DDEA /* Character.swift in Sources */,
 				3406B72127C25A8100F6DDEA /* NITTabView.swift in Sources */,
-				3406B71F27C259BE00F6DDEA /* AddNewCreatureView.swift in Sources */,
-				3406B72827C25CF900F6DDEA /* PlayerCharacter.swift in Sources */,
 				34110E7B27BA38D400948887 /* niftyinitiativetrackerApp.swift in Sources */,
-				3406B72427C25BA000F6DDEA /* PartyView.swift in Sources */,
 				3406B71C27C2592100F6DDEA /* ToolbarItems.swift in Sources */,
-				3406B72C27C25F4F00F6DDEA /* AddNewPCView.swift in Sources */,
-				34110EA527BA8D2100948887 /* InitiativeRow.swift in Sources */,
+				3406B72C27C25F4F00F6DDEA /* AddNewCharacterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,7 +500,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.niftytreestudios.niftyinitiativetracker;
 				PRODUCT_NAME = "Initiative Tracker";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -538,7 +530,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.niftytreestudios.niftyinitiativetracker;
 				PRODUCT_NAME = "Initiative Tracker";
 				SWIFT_EMIT_LOC_STRINGS = YES;

@@ -9,28 +9,38 @@ import SwiftUI
 
 struct ToolbarItems: ToolbarContent {
     
-    @Binding var creatures: [Character]
+    let isEncounter: Bool
     
-    @Binding var editMode: Bool
+    @Binding var characters: [Character]
+    
+    @Binding var encounterCharacters: [Character]
     
     @Binding var isAddingNewCreature: Bool
     
     var body: some ToolbarContent {
         ToolbarItemGroup {
             HStack {
-                Button {
-                    editMode.toggle()
-                } label: {
-                    Text("Edit")
-                }.disabled(creatures.isEmpty)
                 Spacer()
-                Button {
-                    creatures.sort {
-                        ($0.initiativeRoll + $0.modifier) > ($1.initiativeRoll + $1.modifier)
-                    }
-                } label: {
-                    Image(systemName: "line.3.horizontal.decrease")
-                }.disabled(creatures.isEmpty)
+                if isEncounter {
+                    Button {
+                        encounterCharacters.sort {
+                            ($0.initiativeRoll + $0.modifier) > ($1.initiativeRoll + $1.modifier)
+                        }
+                    } label: {
+                        Image(systemName: "line.3.horizontal.decrease")
+                    }.disabled(encounterCharacters.isEmpty)
+                } else {
+                    Button {
+                        for index in 0..<characters.count {
+                            var character = characters[index]
+                            character.rerollInitiative()
+                            characters[index] = character
+                        }
+                        saveParty(characters)
+                    } label: {
+                        Image(systemName: "arrow.clockwise")
+                    }.disabled(characters.isEmpty)
+                }
                 Button {
                     isAddingNewCreature = true
                 } label: {
