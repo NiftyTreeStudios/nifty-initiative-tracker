@@ -16,6 +16,7 @@ struct AddNewPCView: View {
     @State private var player: String = ""
     @State private var initiativeModifier: Int = 0
     @State private var isPC: Bool = false
+    @State private var color: Color = .blue
     
     var body: some View {
         VStack {
@@ -33,7 +34,8 @@ struct AddNewPCView: View {
                         initiativeRoll: Int.random(in: 1...20),
                         modifier: initiativeModifier,
                         isPC: true,
-                        player: player
+                        player: player,
+                        color: color
                     )
                 )
                 isOpen = false

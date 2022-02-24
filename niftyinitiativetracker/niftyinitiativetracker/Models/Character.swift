@@ -5,7 +5,7 @@
 //  Created by Iiro Alhonen on 20.2.2022.
 //
 
-import Foundation
+import SwiftUI
 
 struct Character: Identifiable, Equatable, Codable  {
     var id = UUID()
@@ -14,6 +14,7 @@ struct Character: Identifiable, Equatable, Codable  {
     var modifier: Int
     var isPC: Bool = false
     var player: String? = nil
+    var color: Color = .red
 }
 
 extension Character {

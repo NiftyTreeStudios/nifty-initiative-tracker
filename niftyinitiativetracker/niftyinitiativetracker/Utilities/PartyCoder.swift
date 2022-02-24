@@ -21,5 +21,13 @@ func loadParty() -> [Character] {
     guard let encodedData = UserDefaults.standard.array(forKey: "Party") as? [Data] else {
         return []
     }
-    return encodedData.map { try! JSONDecoder().decode(Character.self, from: $0) }
+    let decoder = JSONDecoder()
+    var party = [Character]()
+    for character in encodedData {
+        if let character = try? decoder.decode(Character.self, from: character) {
+            party.append(character)
+        }
+    }
+    return party
+    // return encodedData.map { try JSONDecoder().decode(Character.self, from: $0) }
 }

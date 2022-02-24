@@ -41,7 +41,7 @@ struct EncounterView: View {
                                 .padding(.leading)
                                 .padding(.trailing, -10)
                             }
-                            InitiativeRow(creature: character)
+                            CharacterRow(character: character)
                         }
                     }
                     .onDelete { index in

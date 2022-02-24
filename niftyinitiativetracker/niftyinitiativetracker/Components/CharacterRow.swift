@@ -26,10 +26,14 @@ struct CharacterRow: View {
                 .font(.title3)
         }
         .padding()
-        .overlay(
+        .background(
             RoundedRectangle(cornerRadius: 25)
                 .stroke(
-                    character.isPC ? .blue : .red,
+                    LinearGradient(
+                        colors: [character.color, character.color.opacity(0.8)],
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    ),
                     lineWidth: 5
                 )
         )
