@@ -21,7 +21,7 @@ struct AddNewCharacterView: View {
     
     var body: some View {
         VStack {
-            Text("Add new PC")
+            Text("Add new \(isPC ? "" : "N")PC")
                 .font(.title2)
             Form {
                 Toggle("Player Character", isOn: $isPC)
