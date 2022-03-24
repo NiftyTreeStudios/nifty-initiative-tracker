@@ -28,14 +28,54 @@ struct CharacterListView: View {
                     if isEncounter {
                         ForEach(encounterCharacters, id: \.id) { character in
                             CharacterRow(character: character)
-                        }.onDelete { index in
-                            deleteCreatures(at: index, isPartyView: false)
+                                .swipeActions(edge: .leading) {
+                                    Button {
+                                        if let index = mobs.firstIndex(of: character) {
+                                            mobs[index].initiativeRoll = Int.random(in: 1...20)
+                                        }
+                                        if let index = characters.firstIndex(of: character) {
+                                            characters[index].initiativeRoll = Int.random(in: 1...20)
+                                        }
+                                    } label: {
+                                        Label("Reroll", systemImage: "arrow.clockwise")
+                                    }
+                                    .tint(.mint)
+                                }
+                                .swipeActions {
+                                    Button(role: .destructive) {
+                                        if let index = mobs.firstIndex(of: character) {
+                                            mobs.remove(at: index)
+                                        }
+                                        if let index = characters.firstIndex(of: character) {
+                                            characters.remove(at: index)
+                                        }
+                                    } label: {
+                                        Label("Delete", systemImage: "trash")
+                                    }
+                                }
                         }
                     } else {
                         ForEach(characters) { character in
                             CharacterRow(character: character)
-                        }.onDelete { index in
-                            deleteCreatures(at: index, isPartyView: true)
+                                .swipeActions(edge: .leading) {
+                                    Button {
+                                        if let index = characters.firstIndex(of: character) {
+                                            characters[index].initiativeRoll = Int.random(in: 1...20)
+                                        }
+                                    } label: {
+                                        Label("Reroll", systemImage: "arrow.clockwise")
+                                    }
+                                    .tint(.mint)
+                                }
+                                .swipeActions {
+                                    Button(role: .destructive) {
+                                        if let index = characters.firstIndex(of: character) {
+                                            characters.remove(at: index)
+                                        }
+                                    } label: {
+                                        Label("Delete", systemImage: "trash")
+                                    }
+                                }
                         }
                     }
                 }
@@ -91,17 +131,7 @@ struct CharacterListView: View {
             characters = loadParty()
             encounterCharacters = mobs + characters
         }
-    }
-    
-    func deleteCreatures(at offsets: IndexSet, isPartyView: Bool) {
-        let character = encounterCharacters[offsets.first!]
-        encounterCharacters.removeAll(where: { $0.id == character.id })
-        mobs.removeAll(where: { $0.id == character.id })
-        if isPartyView {
-            characters.removeAll(where: { $0.id == character.id })
-        }
-    }
-    
+    }    
 }
 
 struct ContentView_Previews: PreviewProvider {
