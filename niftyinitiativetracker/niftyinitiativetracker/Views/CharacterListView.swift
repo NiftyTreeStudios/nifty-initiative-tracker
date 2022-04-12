@@ -10,16 +10,16 @@ import SwiftUI
 struct CharacterListView: View {
     
     @State private var isInEditMode: Bool = false
-    
     @State private var isAddingNewCreature: Bool = false
     
     @Binding var mobs: [Character]
-    
     @Binding var characters: [Character]
-    
     @State private var encounterCharacters: [Character] = []
     
     let isEncounter: Bool
+
+    @State private var manualRollPopUpShown: Bool = false
+    @State private var manualRollInput: String = ""
     
     var body: some View {
         NavigationView {
@@ -40,6 +40,12 @@ struct CharacterListView: View {
                                         Label("Reroll", systemImage: "arrow.clockwise")
                                     }
                                     .tint(.mint)
+                                    Button {
+                                        manualRollPopUpShown = true
+                                    } label: {
+                                        Label("Manual Roll", systemImage: "die.face.5")
+                                    }
+                                    .tint(.orange)
                                 }
                                 .swipeActions {
                                     Button(role: .destructive) {
@@ -126,6 +132,13 @@ struct CharacterListView: View {
                 encounterCharacters = mobs + characters
                 saveParty(characters)
             }
+            .textFieldAlert(
+                isShowing: $manualRollPopUpShown,
+                text: $manualRollInput,
+                placeholder: "Initiative roll",
+                title: "Manually add initiative",
+                buttonLable: Text("Submit")
+            )
         }
         .onAppear {
             characters = loadParty()
