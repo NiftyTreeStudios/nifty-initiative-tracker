@@ -25,64 +25,52 @@ struct CharacterListView: View {
         NavigationView {
             ZStack {
                 List {
-                    if isEncounter {
-                        ForEach(encounterCharacters, id: \.id) { character in
-                            CharacterRow(character: character)
-                                .swipeActions(edge: .leading) {
-                                    Button {
+                    ForEach(isEncounter ? encounterCharacters : characters) { character in
+                        CharacterRow(character: character)
+                            .swipeActions(edge: .leading) {
+                                Button {
+                                    if isEncounter {
                                         if let index = mobs.firstIndex(of: character) {
                                             mobs[index].initiativeRoll = Int.random(in: 1...20)
                                         }
                                         if let index = characters.firstIndex(of: character) {
                                             characters[index].initiativeRoll = Int.random(in: 1...20)
                                         }
-                                    } label: {
-                                        Label("Reroll", systemImage: "arrow.clockwise")
+                                    } else {
+                                        if let index = characters.firstIndex(of: character) {
+                                            characters[index].initiativeRoll = Int.random(in: 1...20)
+                                        }
                                     }
-                                    .tint(.mint)
-                                    Button {
-                                        manualRollPopUpShown = true
-                                    } label: {
-                                        Label("Manual Roll", systemImage: "die.face.5")
-                                    }
-                                    .tint(.orange)
+                                } label: {
+                                    Label("Reroll", systemImage: "arrow.clockwise")
                                 }
-                                .swipeActions {
-                                    Button(role: .destructive) {
+                                .tint(.mint)
+
+                                Button {
+                                    manualRollPopUpShown = true
+                                } label: {
+                                    Label("Manual Roll", systemImage: "die.face.5")
+                                }
+                                .tint(.orange)
+                            }
+                            .swipeActions {
+                                Button(role: .destructive) {
+                                    if isEncounter {
                                         if let index = mobs.firstIndex(of: character) {
                                             mobs.remove(at: index)
                                         }
                                         if let index = characters.firstIndex(of: character) {
                                             characters.remove(at: index)
                                         }
-                                    } label: {
-                                        Label("Delete", systemImage: "trash")
-                                    }
-                                }
-                        }
-                    } else {
-                        ForEach(characters) { character in
-                            CharacterRow(character: character)
-                                .swipeActions(edge: .leading) {
-                                    Button {
-                                        if let index = characters.firstIndex(of: character) {
-                                            characters[index].initiativeRoll = Int.random(in: 1...20)
-                                        }
-                                    } label: {
-                                        Label("Reroll", systemImage: "arrow.clockwise")
-                                    }
-                                    .tint(.mint)
-                                }
-                                .swipeActions {
-                                    Button(role: .destructive) {
+                                    } else {
                                         if let index = characters.firstIndex(of: character) {
                                             characters.remove(at: index)
                                         }
-                                    } label: {
-                                        Label("Delete", systemImage: "trash")
                                     }
+                                } label: {
+                                    Label("Delete", systemImage: "trash")
                                 }
-                        }
+                            }
                     }
                 }
                 .listStyle(.plain)
@@ -144,7 +132,7 @@ struct CharacterListView: View {
             characters = loadParty()
             encounterCharacters = mobs + characters
         }
-    }    
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
