@@ -10,73 +10,70 @@ import SwiftUI
 struct CharacterListView: View {
     
     @State private var isInEditMode: Bool = false
-    
     @State private var isAddingNewCreature: Bool = false
     
     @Binding var mobs: [Character]
-    
     @Binding var characters: [Character]
-    
     @State private var encounterCharacters: [Character] = []
     
     let isEncounter: Bool
+
+    @State private var manualRollPopUpShown: Bool = false
+    @State private var manualRollInput: String = ""
+
+    @State var characterSelected: Character = Character(name: "", initiativeRoll: 0, modifier: 0)
     
     var body: some View {
         NavigationView {
             ZStack {
                 List {
-                    if isEncounter {
-                        ForEach(encounterCharacters, id: \.id) { character in
-                            CharacterRow(character: character)
-                                .swipeActions(edge: .leading) {
-                                    Button {
+                    ForEach(isEncounter ? encounterCharacters : characters) { character in
+                        CharacterRow(character: character)
+                            .swipeActions(edge: .leading) {
+                                Button {
+                                    if isEncounter {
                                         if let index = mobs.firstIndex(of: character) {
                                             mobs[index].initiativeRoll = Int.random(in: 1...20)
                                         }
                                         if let index = characters.firstIndex(of: character) {
                                             characters[index].initiativeRoll = Int.random(in: 1...20)
                                         }
-                                    } label: {
-                                        Label("Reroll", systemImage: "arrow.clockwise")
+                                    } else {
+                                        if let index = characters.firstIndex(of: character) {
+                                            characters[index].initiativeRoll = Int.random(in: 1...20)
+                                        }
                                     }
-                                    .tint(.mint)
+                                } label: {
+                                    Label("Reroll", systemImage: "arrow.clockwise")
                                 }
-                                .swipeActions {
-                                    Button(role: .destructive) {
+                                .tint(.mint)
+
+                                Button {
+                                    manualRollPopUpShown = true
+                                    self.characterSelected = character
+                                } label: {
+                                    Label("Manual Roll", systemImage: "die.face.5")
+                                }
+                                .tint(.orange)
+                            }
+                            .swipeActions {
+                                Button(role: .destructive) {
+                                    if isEncounter {
                                         if let index = mobs.firstIndex(of: character) {
                                             mobs.remove(at: index)
                                         }
                                         if let index = characters.firstIndex(of: character) {
                                             characters.remove(at: index)
                                         }
-                                    } label: {
-                                        Label("Delete", systemImage: "trash")
-                                    }
-                                }
-                        }
-                    } else {
-                        ForEach(characters) { character in
-                            CharacterRow(character: character)
-                                .swipeActions(edge: .leading) {
-                                    Button {
-                                        if let index = characters.firstIndex(of: character) {
-                                            characters[index].initiativeRoll = Int.random(in: 1...20)
-                                        }
-                                    } label: {
-                                        Label("Reroll", systemImage: "arrow.clockwise")
-                                    }
-                                    .tint(.mint)
-                                }
-                                .swipeActions {
-                                    Button(role: .destructive) {
+                                    } else {
                                         if let index = characters.firstIndex(of: character) {
                                             characters.remove(at: index)
                                         }
-                                    } label: {
-                                        Label("Delete", systemImage: "trash")
                                     }
+                                } label: {
+                                    Label("Delete", systemImage: "trash")
                                 }
-                        }
+                            }
                     }
                 }
                 .listStyle(.plain)
@@ -126,12 +123,23 @@ struct CharacterListView: View {
                 encounterCharacters = mobs + characters
                 saveParty(characters)
             }
+            .textFieldAlert(
+                characterArray: $characters,
+                mobsArray: $mobs,
+                character: characterSelected,
+                isEncounter: isEncounter,
+                isShowing: $manualRollPopUpShown,
+                text: $manualRollInput,
+                placeholder: "Initiative roll",
+                title: "Manually add initiative",
+                buttonLable: Text("Submit")
+            )
         }
         .onAppear {
             characters = loadParty()
             encounterCharacters = mobs + characters
         }
-    }    
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
