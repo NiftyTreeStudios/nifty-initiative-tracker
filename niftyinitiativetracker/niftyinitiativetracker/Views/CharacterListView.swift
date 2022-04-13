@@ -35,13 +35,9 @@ struct CharacterListView: View {
                                         if let index = mobs.firstIndex(of: character) {
                                             mobs[index].initiativeRoll = Int.random(in: 1...20)
                                         }
-                                        if let index = characters.firstIndex(of: character) {
-                                            characters[index].initiativeRoll = Int.random(in: 1...20)
-                                        }
-                                    } else {
-                                        if let index = characters.firstIndex(of: character) {
-                                            characters[index].initiativeRoll = Int.random(in: 1...20)
-                                        }
+                                    }
+                                    if let index = characters.firstIndex(of: character) {
+                                        characters[index].initiativeRoll = Int.random(in: 1...20)
                                     }
                                 } label: {
                                     Label("Reroll", systemImage: "arrow.clockwise")
@@ -62,13 +58,9 @@ struct CharacterListView: View {
                                         if let index = mobs.firstIndex(of: character) {
                                             mobs.remove(at: index)
                                         }
-                                        if let index = characters.firstIndex(of: character) {
-                                            characters.remove(at: index)
-                                        }
-                                    } else {
-                                        if let index = characters.firstIndex(of: character) {
-                                            characters.remove(at: index)
-                                        }
+                                    }
+                                    if let index = characters.firstIndex(of: character) {
+                                        characters.remove(at: index)
                                     }
                                 } label: {
                                     Label("Delete", systemImage: "trash")
