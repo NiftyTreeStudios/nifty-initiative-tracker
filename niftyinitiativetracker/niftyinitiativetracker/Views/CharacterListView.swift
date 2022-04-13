@@ -20,6 +20,8 @@ struct CharacterListView: View {
 
     @State private var manualRollPopUpShown: Bool = false
     @State private var manualRollInput: String = ""
+
+    @State var characterSelected: Character = Character(name: "", initiativeRoll: 0, modifier: 0)
     
     var body: some View {
         NavigationView {
@@ -48,6 +50,7 @@ struct CharacterListView: View {
 
                                 Button {
                                     manualRollPopUpShown = true
+                                    self.characterSelected = character
                                 } label: {
                                     Label("Manual Roll", systemImage: "die.face.5")
                                 }
@@ -121,6 +124,10 @@ struct CharacterListView: View {
                 saveParty(characters)
             }
             .textFieldAlert(
+                characterArray: $characters,
+                mobsArray: $mobs,
+                character: characterSelected,
+                isEncounter: isEncounter,
                 isShowing: $manualRollPopUpShown,
                 text: $manualRollInput,
                 placeholder: "Initiative roll",
