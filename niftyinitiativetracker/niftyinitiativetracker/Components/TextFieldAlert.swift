@@ -21,6 +21,8 @@ struct TextFieldAlert<Presenting>: View where Presenting: View {
     let title: String
     let buttonLabel: Text
 
+    @FocusState private var textFieldIsFocused: Bool
+
     var body: some View {
         GeometryReader { (deviceSize: GeometryProxy) in
             ZStack {
@@ -35,10 +37,12 @@ struct TextFieldAlert<Presenting>: View where Presenting: View {
                             .textFieldStyle(.roundedBorder)
                             .padding()
                             .keyboardType(.numberPad)
+                            .focused($textFieldIsFocused)
 
                         HStack {
                             Button(action: {
                                 manualRoll()
+                                textFieldIsFocused = false
                                 withAnimation {
                                     self.isShowing.toggle()
                                 }
