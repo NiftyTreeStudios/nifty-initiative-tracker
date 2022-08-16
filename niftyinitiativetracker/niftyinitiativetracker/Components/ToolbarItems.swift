@@ -12,12 +12,24 @@ struct ToolbarItems: ToolbarContent {
     let isEncounter: Bool
     
     @Binding var characters: [Character]
+
+    @Binding var mobs: [Character]
     
     @Binding var encounterCharacters: [Character]
     
     @Binding var isAddingNewCreature: Bool
     
     var body: some ToolbarContent {
+        ToolbarItemGroup(placement: .navigationBarLeading) {
+            if isEncounter {
+                Button {
+                    mobs = []
+                } label: {
+                    Image(systemName: "trash")
+                }.disabled(mobs.isEmpty)
+            }
+        }
+
         ToolbarItemGroup(placement: .navigationBarTrailing) {
             if isEncounter {
                 Button {

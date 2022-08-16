@@ -95,6 +95,7 @@ struct CharacterListView: View {
                 ToolbarItems(
                     isEncounter: isEncounter,
                     characters: $characters,
+                    mobs: $mobs,
                     encounterCharacters: $encounterCharacters,
                     isAddingNewCreature: $isAddingNewCreature
                 )
