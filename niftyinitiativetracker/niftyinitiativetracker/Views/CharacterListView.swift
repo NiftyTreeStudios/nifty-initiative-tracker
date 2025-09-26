@@ -22,6 +22,7 @@ struct CharacterListView: View {
     @State private var manualRollInput: String = ""
 
     @State var characterSelected: Character = Character(name: "", initiativeRoll: 0, modifier: 0)
+    @State private var editingCharacter: Character?
     
     var body: some View {
         NavigationView {
@@ -30,27 +31,33 @@ struct CharacterListView: View {
                     ForEach(isEncounter ? encounterCharacters : characters) { character in
                         CharacterRow(character: character)
                             .swipeActions(edge: .leading) {
-                                Button {
-                                    if isEncounter {
-                                        if let index = mobs.firstIndex(of: character) {
-                                            mobs[index].initiativeRoll = Int.random(in: 1...20)
+                                if isEncounter {
+                                    Button {
+                                        if isEncounter {
+                                            if let index = mobs.firstIndex(of: character) {
+                                                mobs[index].initiativeRoll = Int.random(in: 1...20)
+                                            }
                                         }
-                                    }
-                                    if let index = characters.firstIndex(of: character) {
-                                        characters[index].initiativeRoll = Int.random(in: 1...20)
-                                    }
-                                } label: {
-                                    Label("Reroll", systemImage: "arrow.clockwise")
-                                }
-                                .tint(.mint)
+                                        if let index = characters.firstIndex(of: character) {
+                                            characters[index].initiativeRoll = Int.random(in: 1...20)
+                                        }
+                                    } label: {
+                                        Label("Reroll", systemImage: "arrow.clockwise")
+                                    }.tint(.mint)
 
-                                Button {
-                                    manualRollPopUpShown = true
-                                    self.characterSelected = character
-                                } label: {
-                                    Label("Manual Roll", systemImage: "die.face.5")
+                                    Button {
+                                        manualRollPopUpShown = true
+                                        self.characterSelected = character
+                                    } label: {
+                                        Label("Manual Roll", systemImage: "die.face.5")
+                                    }.tint(.orange)
+                                } else {
+                                    Button {
+                                        editingCharacter = character
+                                    } label: {
+                                        Label("Edit", systemImage: "pencil")
+                                    }.tint(.blue)
                                 }
-                                .tint(.orange)
                             }
                             .swipeActions {
                                 Button(role: .destructive) {
@@ -109,10 +116,17 @@ struct CharacterListView: View {
                     color: .red
                 )
             }
-            .onChange(of: mobs) { _ in
+            .sheet(item: $editingCharacter) { character in
+                if let index = characters.firstIndex(of: character) {
+                    EditCharacterView(character: $characters[index])
+                } else {
+                    Text("Character not found")
+                }
+            }
+            .onChange(of: mobs) { _, _ in
                 encounterCharacters = mobs + characters
             }
-            .onChange(of: characters) { _ in
+            .onChange(of: characters) { _, _ in
                 encounterCharacters = mobs + characters
                 saveParty(characters)
             }
@@ -135,9 +149,60 @@ struct CharacterListView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        CharacterListView(mobs: .constant([]), characters: .constant([]), isEncounter: false)
-        CharacterListView(mobs: .constant([]), characters: .constant([]), isEncounter: true)
-    }
+#Preview {
+    let mobs: [Character] = [
+        Character(
+            name: "Goblin",
+            initiativeRoll: 10,
+            modifier: 1,
+            isPC: false,
+            player: "",
+            color: .red
+        ),
+        Character(
+            name: "Orc",
+            initiativeRoll: 8,
+            modifier: 2,
+            isPC: false,
+            player: "",
+            color: .red
+        ),
+        Character(
+            name: "Troll",
+            initiativeRoll: 6,
+            modifier: 3,
+            isPC: false,
+            player: "",
+            color: .red
+        )
+    ]
+    let characters: [Character] = [
+        Character(
+            name: "Alice",
+            initiativeRoll: 15,
+            modifier: 2,
+            isPC: true,
+            player: "Player1",
+            color: .blue
+        ),
+        Character(
+            name: "Bob",
+            initiativeRoll: 12,
+            modifier: 1,
+            isPC: true,
+            player: "Player2",
+            color: .green
+        ),
+    ]
+    CharacterListView(
+        mobs: .constant(mobs),
+        characters: .constant(characters),
+        isEncounter: false
+    )
+    CharacterListView(
+        mobs: .constant(mobs),
+        characters: .constant(characters),
+        isEncounter: true
+    )
 }
+
